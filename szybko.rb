@@ -8,6 +8,9 @@ require 'soap/wsdlDriver'
 
 require 'yaml'
 
+before do
+  content_type :html, 'charset' => 'utf-8'
+end
 
 def config
   YAML.load_file("config/allegro.yml")
