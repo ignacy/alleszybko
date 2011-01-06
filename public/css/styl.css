@@ -1,0 +1,104 @@
+html,body{ height: 100%; margin: 0; padding: 0; }
+
+body {
+    padding: 20px 0 0 0;
+    background-attachment:fixed;
+    font-family: "Josefin Sans","Tacoma","Arial",sans-serif;
+    font-size: 14px;
+    line-height:1.5em;
+
+    /* background-image:url("/img/bg.png"); */
+    /* background-repeat:repeat-x repeat-y; */
+}
+
+body > #wrap {
+    height: auto; min-height: 100%;
+    background: #ffffff;
+    position: relative;
+}
+
+#form {
+    text-align: center;
+
+}
+
+
+
+#what {
+  font-family: 'Gruppo', serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.126em;
+  word-spacing: 0em;
+  line-height: 1em;
+}
+
+#main {
+    padding-bottom: 170px;
+
+}
+
+#banner {
+    background: #ff5f03;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.result {
+    padding-top: 3px;
+}
+
+.result:hover {
+    font-weight: bold;
+    color: #ff5f03;
+}
+
+a {
+    text-decoration: none;
+}
+
+#logo {
+  color: #ff5f03;
+  font-family: 'Just Me Again Down Here', serif;
+  font-size: 122px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #aaa;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.175em;
+  word-spacing: 0.133em;
+  line-height: 0.93em;
+}
+
+* {margin:0;padding:0;}
+
+#footer {
+    position: relative;
+    margin-top: -30px; /* negative value of footer height */
+    height: 200px;
+    clear:both;
+    color: #eee;
+    text-align: ceter;
+    padding-top: 20px;
+    height: 40px;
+    margin-top: -70px;
+}
+
+#footer a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+#about {
+    text-align: center;
+}
