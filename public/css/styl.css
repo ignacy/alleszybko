@@ -22,6 +22,12 @@ body > #wrap {
 
 }
 
+input.btn {
+    color: #ff5f03;
+    padding: 3px 7px 3px 7px;
+    margin-left: 3px;
+    font: bold small 'trebuchet ms',helvetica,sans-serif;
+}
 
 
 #what {
