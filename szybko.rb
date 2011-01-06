@@ -18,7 +18,17 @@ end
 
 helpers do
   def allegro_link(l, id)
-    l = l.downcase.gsub(/ /, '-').gsub(/,/, "-").gsub(/\.|\(|\)|\:/, "").gsub(/Ł|ł/, "l").gsub(/Ż|ż|ź|Ź/, "z").gsub(/ó/, "o").gsub(/Ó/, "o")
+    l = l.downcase.gsub(/ /, '-').gsub(/,/, "-").
+      gsub(/\.|\(|\)|\:|\!|\[|\]|\"|\'|\/|\\|\>|\<|\{|\}|\@|\#/, "").
+      gsub(/Ł|ł/, "l").
+      gsub(/Ż|ż|ź|Ź/, "z").
+      gsub(/ó/, "o").
+      gsub(/Ó/, "o").
+      gsub(/ś|Ś/, "s").
+      gsub(/Ć|ć/, "c").
+      gsub(/ą|Ą/, "a").
+      gsub(/Ę|ę/, "e")
+
     "http://allegro.pl/#{l}-i#{id}.html"
   end
 
@@ -46,4 +56,8 @@ post '/results' do
   @search_results = client.doSearch(@session, { "search-string" => params[:query], "search-offset" => 2, "search-limit" => 100, "search-options" => 8, "search-order" => 4, "search-order-type" => 0})[2]
   @query = params[:query] || ""
   haml :results
+end
+
+get '/about' do
+  haml :about
 end

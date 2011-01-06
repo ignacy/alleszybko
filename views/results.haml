@@ -5,10 +5,12 @@
   #banner= "Wyniki dla frazy: #{@query}"
 
 .span-24.prepend-top
-  - unless @search_results.nil?
+  - if !@search_results.nil?
     - @search_results.each do |sr|
       .span-20.prepend-2.result
         .span-15
           %a{ :href => allegro_link(sr['s-it-name'], sr['s-it-id']) }= sr["s-it-name"]
         .prepend-2.span-3.last
           = cena(sr)
+  - else
+    %p= "Brak wyników. Spróbuj ponownie!"
