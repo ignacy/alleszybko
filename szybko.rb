@@ -53,7 +53,19 @@ post '/results' do
   client = SOAP::WSDLDriverFactory.new( 'http://webapi.allegro.pl/uploader.php?wsdl' ).create_rpc_driver
   @key = client.doQuerySysStatus(1, 1, config['api_key']).last
   @session = client.doLogin(config['login'], config['password'], 1, config['api_key'], @key).first
-  @search_results = client.doSearch(@session, { "search-string" => params[:query], "search-offset" => 2, "search-limit" => 100, "search-options" => 8, "search-order" => 4, "search-order-type" => 0})[2]
+  @buy_now = (params[:buy_now] && params[:buy_now] == 1)
+
+  if params[:query]
+    options = @buy_now ? 8 : 0
+    @search_results = client.doSearch(@session,
+                                      { "search-string" => params[:query],
+                                        "search-offset" => 2,
+                                        "search-limit" => 100,
+                                        "search-options" => options,
+                                        "search-order" => 4,
+                                        "search-order-type" => 0})[2]
+  end
+
   @query = params[:query] || ""
   haml :results
 end

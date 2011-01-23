@@ -1,7 +1,9 @@
 .span-24.prepend-top
   .span-24#form
-    :plain
-      <form name="input" action="/results" method="post">
-      <input type="text" class="title" name="query" />
-      <input type="submit" value="Wyszukaj" class="btn" />
-      </form>
+    %form{ :action => "/results", :method => "post"}
+      %input{ :type => "text", :class => "title", :name => "query", :value => @query || "" }
+      %input{ :type => "submit", :value => "Wyszukaj", :class => "btn"}
+      %br
+      %label
+        %input{ :type => "checkbox", :value => "1", :name => "buy_now", :checked => "#{@buy_now ? "yes" : "no" }"}
+        = "Tylko \"Kup Teraz\""
