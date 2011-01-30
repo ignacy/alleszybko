@@ -63,6 +63,9 @@ post '/results' do
   @cena_od = (params[:zakres_od] == "") ? 0 : params[:zakres_od].to_i
   @cena_do = (params[:zakres_do] == "") ? 0 : params[:zakres_do].to_i
 
+
+  @order_value = params[:order_by]
+
   if params[:order_by] == "price"
     order_by = 4
   else

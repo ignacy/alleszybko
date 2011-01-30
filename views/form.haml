@@ -20,8 +20,8 @@
         .span-4= "Sortuj po:"
         .span-5
           %select{ :name => "order_by", :tabindex => 4}
-            %option{:value => "price"}= "cenie"
-            %option{:value => "time"}= "czasie zakończenia"
+            %option{:value => "price", :selected => (@order_value == "price") ? 'selected' : nil }= "cenie"
+            %option{:value => "time", :selected => (@order_value == "time") ? 'selected' : nil}= "czasie zakończenia"
 
       .span-10
         .span-4= "Cana od:"
