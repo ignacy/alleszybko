@@ -27,7 +27,8 @@ helpers do
       gsub(/ś|Ś/, "s").
       gsub(/Ć|ć/, "c").
       gsub(/ą|Ą/, "a").
-      gsub(/Ę|ę/, "e")
+      gsub(/Ę|ę/, "e").
+      gsub(/Ń|ń/, "n")
 
     "http://allegro.pl/#{l}-i#{id}.html"
   end
@@ -50,21 +51,37 @@ get '/' do
 end
 
 post '/results' do
+  redirect '/' if params[:query] == ""
+
   client = SOAP::WSDLDriverFactory.new( 'http://webapi.allegro.pl/uploader.php?wsdl' ).create_rpc_driver
   @key = client.doQuerySysStatus(1, 1, config['api_key']).last
   @session = client.doLogin(config['login'], config['password'], 1, config['api_key'], @key).first
-  @buy_now = (params[:buy_now] && params[:buy_now] == 1)
+
+  @buy_now = !params[:buy_now].nil?
+  @order = !params[:order].nil?
+
+  @cena_od = (params[:zakres_od] == "") ? 0 : params[:zakres_od].to_i
+  @cena_do = (params[:zakres_do] == "") ? 0 : params[:zakres_do].to_i
+
+  if params[:order_by] == "price"
+    order_by = 4
+  else
+    order_by = 1
+  end
 
   if params[:query]
     options = @buy_now ? 8 : 0
+
     @search_results = client.doSearch(@session,
                                       { "search-string" => params[:query],
-                                        "search-offset" => 2,
                                         "search-limit" => 100,
                                         "search-options" => options,
-                                        "search-order" => 4,
-                                        "search-order-type" => 0})[2]
+                                        "search-order" => order_by,
+                                        "search-price-to" => Float(@cena_do),
+                                        "search-price-from" => Float(@cena_od),
+                                        "search-order-type" => @order ? 1 : 0})[2]
   end
+
 
   @query = params[:query] || ""
   haml :results

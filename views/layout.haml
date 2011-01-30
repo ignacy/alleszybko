@@ -2,6 +2,7 @@
 %head
   %link{ :rel => "stylesheet", :href => "css/screen.css", :type => "text/css", :media => "screen, projection"}
   %link{ :rel => "stylesheet", :href => "css/print.css", :type => "text/css",  :media => "print"}
+  %link{ :rel => "stylesheet", :href => "css/uniform.default.css", :type => "text/css", :media => "screen", :charset => "utf-8"}
   %link{ :rel => "stylesheet", :href => "css/styl.css", :type => "text/css",  :media => "screen, projection"}
   :plain
     <link rel="stylesheet" href="css/uniform.default.css" type="text/css" media="screen" charset="utf-8" />
@@ -18,7 +19,12 @@
           %img{ :src => "images/znajdz_to.png", :alt => "znajdz100.pl"}
       .span-24
         = yield
-  .conteiner#ad
+
+  .container.span-24.prepend-18
+    :plain
+      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fznajdz100.pl&amp;layout=box_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;font=lucida+grande&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:65px;" allowTransparency="true"></iframe>
+
+  .conteiner.span-24.prepend-12#ad
     :plain
       <script type="text/javascript"><!--
       google_ad_client = "ca-pub-2717159126346884";

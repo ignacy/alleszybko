@@ -1,9 +1,39 @@
 .span-24.prepend-top
-  .span-24#form
+  .span-24
     %form{ :action => "/results", :method => "post"}
-      %input{ :type => "text", :class => "title", :name => "query", :value => @query || "" }
-      %input{ :type => "submit", :value => "Wyszukaj", :class => "btn"}
+
+      .span-24#form
+        %input{ :type => "text", :class => "title", :name => "query", :tabindex => 1, :value => @query || "" }
+        %input{ :type => "submit", :value => "Wyszukaj", :tabindex => 2, :class => "btn"}
+
+      .span-24.prepend-top.append-bottom
+        %hr
+
+      .span-10
+        .span-4= "Tylko \"Kup Teraz\""
+        .span-5
+          %input{ :type => "checkbox", :value => "1", :name => "buy_now", :tabindex => 3, :checked => @buy_now }
+
+
+
+      .span-10
+        .span-4= "Sortuj po:"
+        .span-5
+          %select{ :name => "order_by", :tabindex => 4}
+            %option{:value => "price"}= "cenie"
+            %option{:value => "time"}= "czasie zakończenia"
+
+      .span-10
+        .span-4= "Cana od:"
+        %input{ :type => "text", :id => "zakres_od", :name => "zakres_od", :size => 10, :tabindex => 5, :value => @cena_od || ""}
+
       %br
-      %label
-        %input{ :type => "checkbox", :value => "1", :name => "buy_now", :checked => "#{@buy_now ? "yes" : "no" }"}
-        = "Tylko \"Kup Teraz\""
+      .span-10
+        .span-4= "Cana do:"
+        %input{ :type => "text", :id => "zakres_do", :name => "zakres_do", :size => 10, :tabindex => 6, :value => @cena_do || ""}
+
+      .span-10
+        %label
+          .span-4="Sortuj malejąco"
+          .span-5
+            %input{ :type => "checkbox", :value => "2", :name => "order", :checked => @order, :tabindex => 7 }
