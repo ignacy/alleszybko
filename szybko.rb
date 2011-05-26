@@ -1,11 +1,8 @@
-# -*- coding: utf-8 -*-
 require 'rubygems'
 require 'sinatra'
 require 'haml'
 gem 'soap4r'
 require 'soap/wsdlDriver'
-
-
 require 'yaml'
 
 before do
