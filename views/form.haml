@@ -1,36 +1,36 @@
-.span-24.prepend-top
-  .span-24
+.span-12.prepend-top
+  .span-12
     %form{ :action => "/results", :method => "post"}
 
-      .span-24#form
+      .span-11#form
         %input{ :type => "text", :class => "title", :name => "query", :tabindex => 1, :value => @query || "" }
         %input{ :type => "submit", :value => "Wyszukaj", :tabindex => 2, :class => "btn"}
 
       .span-10
-        .span-4.small= "Tylko \"Kup Teraz\""
+        .span-3.small= "Tylko \"Kup Teraz\""
         .span-5
           %input{ :type => "checkbox", :value => "1", :name => "buy_now", :tabindex => 3, :checked => @buy_now || true }
 
 
 
       .span-10
-        .span-4.small= "Sortuj po:"
+        .span-3.small= "Sortuj po:"
         .span-5
           %select{ :name => "order_by", :tabindex => 4}
             %option{:value => "price", :selected => (@order_value == "price") ? 'selected' : nil }= "cenie"
             %option{:value => "time", :selected => (@order_value == "time") ? 'selected' : nil}= "czasie zakończenia"
 
       .span-10
-        .span-4.small= "Cana od:"
+        .span-3.small= "Cana od:"
         %input{ :type => "text", :id => "zakres_od", :name => "zakres_od", :size => 25, :tabindex => 5, :value => @cena_od || ""}
 
       %br
       .span-10
-        .span-4.small= "Cana do:"
+        .span-3.small= "Cana do:"
         %input{ :type => "text", :id => "zakres_do", :name => "zakres_do", :size => 25, :tabindex => 6, :value => @cena_do || ""}
 
       .span-10
         %label
-          .span-4.small="Sortuj malejąco"
+          .span-3.small="Sortuj malejąco"
           .span-5
             %input{ :type => "checkbox", :value => "2", :name => "order", :checked => @order, :tabindex => 7 }

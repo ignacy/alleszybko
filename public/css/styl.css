@@ -7,8 +7,8 @@ body {
     font-size: 14px;
     line-height:1.5em;
 
-    /* background-image:url("/img/bg.png"); */
-    /* background-repeat:repeat-x repeat-y; */
+/* background-image:url("/img/bg.png"); */
+/* background-repeat:repeat-x repeat-y; */
 }
 
 body > #wrap {
@@ -17,7 +17,7 @@ body > #wrap {
 }
 
 #form {
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -42,7 +42,7 @@ input.btn {
 
 label {
     font-weight: normal;
-    }
+}
 
 #main {
     padding-bottom: 170px;
@@ -72,15 +72,15 @@ a {
 }
 
 #logo {
-  text-align: center;
-  font-style: normal;
-  font-weight: 400;
-  text-shadow: 2px 2px 2px #aaa;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0.175em;
-  word-spacing: 0.133em;
-  line-height: 0.93em;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    text-shadow: 2px 2px 2px #aaa;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 0.175em;
+    word-spacing: 0.133em;
+    line-height: 0.93em;
 }
 
 * {margin:0;padding:0;}
@@ -93,6 +93,13 @@ a {
     text-align: ceter;
     padding-top: 20px;
     height: 40px;
+}
+
+#what {
+    font-family: verdana, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.4pt;
+    word-spacing: 0.8pt;
 }
 
 #footer a {
